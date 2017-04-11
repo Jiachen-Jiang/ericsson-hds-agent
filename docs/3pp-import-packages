@@ -1,0 +1,6 @@
+# Below is the list of 3rd party S/W packages that Ericsson HDS Agent uses 
+
+
+
+1. github.com/rcrowley/go-metrics
+2. github.com/fsnotify/fsnotify

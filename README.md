@@ -3,7 +3,7 @@ Ericsson HDS Agent
 
 What is Ericsson HDS Agent?
 --------------------------
-Ericsson HDS Agent is a Linux based program designed to run on any Linux System. It collects an inventory of the host machine's hardware inventory and runtime system metrics. It is composed of many built-in collectors, formatters and a forwarder.
+Ericsson HDS (Hyperscale Datacenter Systems) Agent is a Linux based program designed to run on any Linux System. It collects an inventory of the host machine's hardware inventory and runtime system metrics. It is composed of many built-in collectors, formatters and a forwarder.
 
 ![image](./docs/images/datahub-io.png) 
 

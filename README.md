@@ -9,7 +9,7 @@ Ericsson HDS (Hyperscale Datacenter Systems) Agent is a Linux based program desi
 
 ### Supported Platforms:
    * LINUX/x86_64
-   * LINUX/ARM_64
+   * LINUX/ARM64
 
 Getting Started
 ---------------
@@ -21,7 +21,7 @@ Installation from Binary Distribution
    Execute the command below to download
 
    ```
-   wget https://github.com/Ericsson/ericsson-hds-agent/blob/master/release/ericsson-hds-agent_x86_64.tar.gz
+   wget https://github.com/Ericsson/ericsson-hds-agent/release/ericsson-hds-agent_x86_64.tar.gz
    ```
 
 1. **Install**
@@ -35,9 +35,9 @@ Installation from Binary Distribution
 
    After the files are extracted, the program can be executed as follows. 
    ```
-   cd hds-agent/
+   cd ericsson-hds-agent/
 
-   sudo ./hds-agent -stdout
+   sudo ./ericsson-hds-agent -stdout
    ```
    A `node.id` file is automatically created and contains an unique identifier for this host system.
 
@@ -46,17 +46,19 @@ Installation from Binary Distribution
    This behavior can be changed by passing different sets of command line arguments. Here are some examples.
  
    ```
-   sudo ./hds-agent -stdout -frequency=60
+   sudo ./ericsson-hds-agent -stdout -frequency=15
    ```
-   The above command collects metrics at an interval of 60 seconds and sends the data to standard output.
+   The above command collects metrics at an interval of 15 seconds and sends the data to standard output.
   
    ```
-   sudo ./hds-agent -stdout -frequency=60 -destination=tcp:localhost:9090
+   sudo ./ericsson-hds-agent  -frequency=15 -destination=tcp:<ip_addr>:9090
    ```
-   The above command collects metrics at an interval of 60 seconds and sends the data to a storage server running on port 9090. A [sample storage server](./examples/simple-storage-server.py) has been provided to ingest the data.
+   (ip_addr = ip address of the storage server.  get more detail in examples folder.)
+
+   The above command collects metrics at an interval of 15 seconds and sends the data to a storage server running on port 9090. A [sample storage server](./examples/simple-storage-server.py) has been provided to ingest the data.
 
 ### Command Line Arguments and Other details  
-Please refer to [detailed document](./apps/hds-agent/README.md) for a complete list of supported parameters and other details of the Ericsson HDS Agent.
+Please refer to [detailed document](./agent/apps/ericsson-hds-agent/README.md) for a complete list of supported parameters and other details of the Ericsson HDS Agent.
 
 
 Installation from Source Code
@@ -73,16 +75,16 @@ Installation from Source Code
    User can download the Ericsson HDS Agent source code using `go` command
 
    ```
+   cd $HOME/go/src
+
    go get github.com/Ericsson/ericsson-hds-agent
    ```
 
 1. **How to Build**
 
-   Execute the below set of commands to build hds-agent binary
+   Execute the below set of commands to build HDS Agent binary
    ```
-   cd $GOPATH/src/github.com/Ericsson/ericsson-hds-agent/hds-agent/app/hds-agent
-
-   go get ./...
+   cd github.com/Ericsson/ericsson-hds-agent/agent/apps/ericsson-hds-agent
 
    go build
    ```
@@ -91,8 +93,7 @@ Installation from Source Code
 
    After the build completes, follow below instruction to execute the Ericsson HDS Agent program. User will find node.id file being created which contains uniqueue identifier for this host system
    ```
-   cd $GOPATH/src/github.com/Ericsson/ericsson-hds-agent/hds-agent/app/hds-agent
-   sudo ./hds-agent -stdout
+   sudo ./ericsson-hds-agent -stdout
    ```
 
    To run with other parameters refer to section [How to Run](#installation-from-binary-distribution)
@@ -102,7 +103,7 @@ Installation from Source Code
    User can validate Ericsson HDS Agent output with system command(s)
 
 
-   For example, cpu inventory data output from Ericsson HSD agent(given below) can be verified using Linux command `cat /proc/cpuinfo`
+   For example, cpu inventory data output from Ericsson HDS Agent(given below) can be verified using Linux command `cat /proc/cpuinfo`
    ```
 	{
 	    "Category": "cpuinfo",
